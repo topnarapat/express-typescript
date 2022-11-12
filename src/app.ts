@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.use('/api', router);
 
-app.use('/api/v1/*', (req: Request, res: Response) => {
+app.use('/api/*', (req: Request, res: Response) => {
   return res.status(404).send('<h1>API Not Found</h1>')
 });
 
