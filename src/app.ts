@@ -1,8 +1,16 @@
 import express, { Request, Response } from 'express';
 import router from './routers';
+import path from 'path';
+
+export interface commonResponse {
+  data?: any
+}
 
 const app = express();
 
+app.set('x-powered-by', false);
+
+app.use(express.static(path.join(__dirname, '../dist')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
